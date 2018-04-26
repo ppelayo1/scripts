@@ -70,17 +70,7 @@
 
                 </section>
 
-
-                <section id="originalT">
-
-                    <h2> Original Trilogy </h2>
-                    <article>
-
-
-
-                    </article>
-
-                </section>
+                
 
                 <div id="searchContainer01"
 
@@ -98,6 +88,7 @@
                     </fieldset> 
 
                 </form>
+                
                 <p id="searchResults"> </p>
             </div>
 
@@ -108,7 +99,42 @@
                 //autoStart Functions
                 (function() {
 
-                    //create eventhandler
+                    //create eventhandler to provide hints as input provided
+                    document.getElementById("searchBox").addEventListener("keyup",function () {
+
+
+                        //variables
+                        var xhttp = new XMLHttpRequest();
+                        var searchVal = document.getElementById("searchBox").value;
+                        var query;                      
+                            
+                        
+
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                var response = this.responseText;
+
+                                if (this.responseText.length > 0){ 
+                                    
+                                    document.getElementById("searchResults").innerHTML = response;
+                                    
+
+                                }
+                                else{
+                                    
+                                    document.getElementById("searchResults").innerHTML = response;
+                                    
+                                    
+                                }
+                            }
+                        };
+
+                        xhttp.open("GET","PHP/searchDB.php?q=" + searchVal, true);
+                        xhttp.send();
+                    });
+                
+
+                    //create eventhandler for clicking search
                     document.getElementById("submitForm").addEventListener("click",function () {
 
 

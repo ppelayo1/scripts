@@ -1,3 +1,8 @@
+#preQ{
+    clear:right;   
+    float:left;    
+}
+
 #preQ,#originalT{
     height:auto; 
     width:44%;
@@ -6,10 +11,7 @@
     text-align: center;
     padding-bottom: 30px;
 }
-#preQ{
-    clear:right;   
-    float:left;    
-}
+
 
 #originalT{      
     float:right;
@@ -17,7 +19,7 @@
 
 #searchContainer01{
     float:right;
-    width:auto;
+    width: 50%;
     height:auto;
 
 }
@@ -34,7 +36,7 @@
     padding-left: 5px;
     margin-top: 0;
     font-size: 20px;
-	height:auto;
+    height:auto;	
 	color:black;
     box-shadow: 2px 2px;
 }
