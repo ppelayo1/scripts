@@ -17,8 +17,9 @@
     float:right;
 }
 
-#searchContainer01{
-    float:right;
+#searchContainer01{   
+    color:black;
+    margin: auto;
     width: 50%;
     height:auto;
 
@@ -29,7 +30,7 @@
 }
 
 
-#searchResults{
+#searchHints{
 	display:block;
 	background:white;
 	width: 250px;
@@ -41,5 +42,9 @@
     box-shadow: 2px 2px;
 }
 
+#searchResults{
+    width: 95%;
+    padding: 0 10px 0 10px;
+}
 
 

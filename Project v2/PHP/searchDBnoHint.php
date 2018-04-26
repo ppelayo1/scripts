@@ -35,7 +35,7 @@
     
     	//Assign all rows into an array for conversion into a json object
     	while($row = $results->fetch_assoc()){
-    		$obj[] = $row;
+    		$obj = $row;
     	}
 
     	//output the result
