@@ -87,8 +87,8 @@
                 </fieldset>
 
                 </form>
-
-                <p id="searchResults"> </p>
+                <p id="tester"></p>  
+                <ul id="searchResults"> </ul>
             </div>
 
 
@@ -139,8 +139,7 @@
 
                                 //create and attach the nodes to the list
                                 for (var i = 0; i < nChild; i++) {
-                                    var cElem = document.createElement("span");
-                                    var nLine = document.createElement("br");
+                                    var cElem = document.createElement("li");                                    
                                     var aChild = document.createTextNode(response[i]);
                                     
                                     //fill out the search bar if a hint clicked
@@ -148,15 +147,14 @@
                                         document.getElementById("searchBox").value = this.innerHTML;
                                     });
                                     
-                                    //some styling
-                                    //cElem.style.paddingRight = '100px';
+                                    //some styling                                    
+                                    cElem.style.listStyle = 'none';
                                     
-                                    cElem.offsetWidth = '150px';
                                     
                                     //append                                        
                                     cElem.appendChild(aChild);                                    
                                     searchObj.appendChild(cElem);
-                                    searchObj.appendChild(nLine);
+                                    
                                 }
 
 
@@ -187,7 +185,7 @@
                             }
                         };
 
-                        xhttp.open("GET", "PHP/searchDB.php?q=" + searchVal, true);
+                        xhttp.open("GET", "PHP/searchDBnoHint.php?q=" + searchVal, true);
                         xhttp.send();
                     });
                 })();
