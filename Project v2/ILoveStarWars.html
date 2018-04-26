@@ -87,18 +87,8 @@
                     <fieldset>
 
                         
-                        <span>Categories to Search</span> <br>
-                        <select id="choosenOption" name="searchType">
-                                                    
-                            <option id="planets" value="planets" > Planets </option>
-                            <option id="people" value="people" > People </option>
-                            <option id="films" value="films" > Films </option>
-                            <option id="starships" value="starships" > StarShips </option>
-                            <option id="species" value="species" > Species </option>
-                            <option id="vehicles" value="vehicles" > Vehicles </option>
-                            
-                         
-                         </select>
+                        <span>Search Star Wars</span> <br>
+                        
 
                         <input type="text" id="searchBox" name="searchBox">
 
@@ -123,27 +113,18 @@
                         //variables
                         var xhttp = new XMLHttpRequest();
                         var searchVal = document.getElementById("searchBox").value;
-                        var query;
-                        var searchType = document.getElementById("choosenOption").value;
-
-
-                        //Create the query
-                        if(searchType === "planets"){
-                            searchVal = JSON.stringify(
-                                
-
-
-                                );
-                        }
+                        var query;                      
+                            
+                        
 
                         xhttp.onreadystatechange = function() {
                             if (this.readyState == 4 && this.status == 200) {
-                                var x = this.responseText;                                
-                                document.getElementById("tester").innerHTML = x;
+                                var response = this.responseText;                                
+                                document.getElementById("tester").innerHTML = response;
                             }
                         };
 
-                        xhttp.open("GET","PHP/searchDB.php?q= " + searchVal, true);
+                        xhttp.open("GET","PHP/searchDB.php?q=" + searchVal, true);
                         xhttp.send();
                     });
                 })();
