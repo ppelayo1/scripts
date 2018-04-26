@@ -14,3 +14,30 @@
 #originalT{      
     float:right;
 }
+
+#searchContainer01{
+    float:right;
+    width:auto;
+    height:auto;
+
+}
+
+#searchFieldSet01{
+    margin:0 0 3px 0;
+}
+
+
+#searchResults{
+	display:block;
+	background:white;
+	width: 250px;
+    padding-left: 5px;
+    margin-top: 0;
+    font-size: 20px;
+	height:auto;
+	color:black;
+    box-shadow: 2px 2px;
+}
+
+
+
