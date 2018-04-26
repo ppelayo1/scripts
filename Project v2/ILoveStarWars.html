@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>>Patrick Pelayo Final Project Favorite Other</title>
@@ -8,7 +9,7 @@
     <link href="Styles/moreSpecificStyles/starWars.css" type="text/css" rel="stylesheet">
     <!-- Add a link to your own style sheet here  -->
 
-    
+
     <!--
 	Final Project by __________________________ (your name)
 -->
@@ -56,43 +57,41 @@
             <h1 class="firstHeader">My thoughts on Star Wars!!!</h1>
             <p></p>
 
-                <section id="preQ">
+            <section id="preQ">
 
-                    <h2>Prequelj trilogy </h2>
-                    <article>
+                <h2>Prequelj trilogy </h2>
+                <article>
 
-                        <p> The prequel trilogy composes the first three films(episodes) of the star wars saga. </p>              
-                        <h3> Episode 1 <br> The Phantom Menace </h3>
-                        <p> </p>
+                    <p> The prequel trilogy composes the first three films(episodes) of the star wars saga. </p>
+                    <h3> Episode 1 <br> The Phantom Menace </h3>
+                    <p> </p>
 
-                    </article>
+                </article>
 
 
-                </section>
+            </section>
 
-                
 
-                <div id="searchContainer01"
 
-                <form>
+            <div id="searchContainer01" <form>
 
-                    <fieldset id="searchFieldSet01">
+                <fieldset id="searchFieldSet01">
 
-                        
-                        <span>Search Star Wars</span> <br>
-                        
 
-                        <input type="text" id="searchBox" name="searchBox">
+                    <span>Search Star Wars</span> <br>
 
-                        <button id="submitForm" type="button">search</button>
-                    </fieldset> 
+
+                    <input type="text" id="searchBox" name="searchBox">
+
+                    <button id="submitForm" type="button">search</button>
+                </fieldset>
 
                 </form>
-                
+
                 <p id="searchResults"> </p>
             </div>
 
-            
+
 
 
             <script>
@@ -100,83 +99,115 @@
                 (function() {
 
                     //create eventhandler to provide hints as input provided
-                    document.getElementById("searchBox").addEventListener("keyup",function () {
+                    document.getElementById("searchBox").addEventListener("keyup", function() {
 
 
                         //variables
                         var xhttp = new XMLHttpRequest();
                         var searchVal = document.getElementById("searchBox").value;
-                        var query;                      
-                            
-                        
+                        var query;
+                        var searchObj = document.getElementById("searchResults");
+
+                        //get length of current search obj children
+                        var sLength = searchObj.children.length;
+
+                        //delete old child nodes
+                        if (sLength > 0) {
+                            for (var i = 0; i < sLength; i++) {
+                                searchObj.removeChild(searchObj.children[0]);
+                            }
+                        }
+
+
+
+
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                //get the result as a json object
+                                var response = this.responseText;
+
+                                //convert it
+                                response = JSON.parse(response);
+
+
+
+
+
+                                //set variable with # of children
+                                var nChild = response.length;
+
+
+                                //create and attach the nodes to the list
+                                for (var i = 0; i < nChild; i++) {
+                                    var cElem = document.createElement("span");
+                                    var nLine = document.createElement("br");
+                                    var aChild = document.createTextNode(response[i]);
+                                    
+                                    //fill out the search bar if a hint clicked
+                                    cElem.addEventListener("click",function () {                                        
+                                        document.getElementById("searchBox").value = this.innerHTML;
+                                    });
+                                    
+                                    
+                                    //append                                        
+                                    cElem.appendChild(aChild);                                    
+                                    searchObj.appendChild(cElem);
+                                    searchObj.appendChild(nLine);
+                                }
+
+
+
+                            }
+                        };
+
+                        xhttp.open("GET", "PHP/searchDB.php?q=" + searchVal, true);
+                        xhttp.send();
+                    });
+
+
+                    //create eventhandler for clicking search
+                    document.getElementById("submitForm").addEventListener("click", function() {
+
+
+                        //variables
+                        var xhttp = new XMLHttpRequest();
+                        var searchVal = document.getElementById("searchBox").value;
+                        var query;
+
+
 
                         xhttp.onreadystatechange = function() {
                             if (this.readyState == 4 && this.status == 200) {
                                 var response = this.responseText;
-
-                                if (this.responseText.length > 0){ 
-                                    
-                                    document.getElementById("searchResults").innerHTML = response;
-                                    
-
-                                }
-                                else{
-                                    
-                                    document.getElementById("searchResults").innerHTML = response;
-                                    
-                                    
-                                }
-                            }
-                        };
-
-                        xhttp.open("GET","PHP/searchDB.php?q=" + searchVal, true);
-                        xhttp.send();
-                    });
-                
-
-                    //create eventhandler for clicking search
-                    document.getElementById("submitForm").addEventListener("click",function () {
-
-
-                        //variables
-                        var xhttp = new XMLHttpRequest();
-                        var searchVal = document.getElementById("searchBox").value;
-                        var query;                      
-                            
-                        
-
-                        xhttp.onreadystatechange = function() {
-                            if (this.readyState == 4 && this.status == 200) {
-                                var response = this.responseText;                                
                                 document.getElementById("tester").innerHTML = response;
                             }
                         };
 
-                        xhttp.open("GET","PHP/searchDB.php?q=" + searchVal, true);
+                        xhttp.open("GET", "PHP/searchDB.php?q=" + searchVal, true);
                         xhttp.send();
                     });
                 })();
 
 
 
-                
-                (function () {
-                    
+
+                (function() {
+
                     //var
                     var event = document.getElementById("submitForm");
-                    
+
                     //event listener for click
-                    event.addEventListener("click", function () {
-                        
+                    event.addEventListener("click", function() {
+
                         var v = document.getElementById("choosenOption").value;
-                       // document.getElementById("tester").innerHTML = v;
-                        
+                        // document.getElementById("tester").innerHTML = v;
+
                     });
-                    
-                    
-                    
+
+
+
                 })()
-                
+
             </script>
 
         </div>
@@ -190,5 +221,5 @@
     </div>
 
 </body>
-</html>
 
+</html>

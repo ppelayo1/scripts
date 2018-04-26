@@ -4,6 +4,7 @@
 	$q = $_REQUEST["q"];
 	$strn = ''; //This string will hold the querry request
 	$result = '';    //Results of the querry
+	$obj;  	//This will be a returned json object
 
 		//only perform the steps if a value exists
 		if($q != ""){
@@ -28,12 +29,18 @@
 	    //Connect and get results
 	    $results = $con->query($strn);
 
-	    
-
-
-	    //print out the matches
+	    //Build an object of all results
 	    while($row = $results->fetch_assoc())
-	    	echo $row["Name"] . "<br>";
+	    {
+	    	$obj[] = $row["Name"];
+	    }
+
+	    //encode the obj for JSON
+	    $obj = json_encode($obj);
+
+
+	    //return the result
+	    echo $obj;
 	    	
 
     
