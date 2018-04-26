@@ -1,0 +1,16 @@
+#preQ,#originalT{
+    height:auto; 
+    width:44%;
+    padding-left: 3%;
+    padding-right: 3%;
+    text-align: center;
+    padding-bottom: 30px;
+}
+#preQ{
+    clear:right;   
+    float:left;    
+}
+
+#originalT{      
+    float:right;
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>>Patrick Pelayo Final Project Favorite Other</title>
+    <link href="Styles/layout.css" type="text/css" rel="stylesheet">
+    <link href="Styles/standardPageStylesPatrickPelayo.css" type="text/css" rel="stylesheet">
+    <link href="Styles/moreSpecificStyles/starWars.css" type="text/css" rel="stylesheet">
+    <!-- Add a link to your own style sheet here  -->
+
+    
+    <!--
+	Final Project by __________________________ (your name)
+-->
+
+</head>
+
+<body>
+    <div id="mainBox">
+
+        <header>
+            <a href="index.html">
+            <img src="Images/header/clickableHeader.jpg" alt="PatrickP.tech">
+            </a>
+        </header>
+
+        <nav>
+
+            <div class="navBarLinks">
+                <h3 class="navBarHeader">Navigation</h3>
+                <ul>
+                    <li>
+                        <a href="index.html"> Home</a>
+                    </li>
+                    <li>
+                        <a href="favlinks.html">Favorite Links</a>
+                    </li>
+                    <li>
+                        <a href="resume.html">Resume</a>
+                    </li>
+                    <li>
+                        I Love Star Wars
+                    </li>
+                    <li>
+                        <a href="feedback.html">Feedback</a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+
+        </nav>
+
+        <div id="main">
+            <h1 class="firstHeader">My thoughts on Star Wars!!!</h1>
+            <p></p>
+
+                <section id="preQ">
+
+                    <h2>Prequel trilogy </h2>
+                    <article>
+
+                        <p> The prequel trilogy composes the first three films(episodes) of the star wars saga. </p>              
+                        <h3> Episode 1 <br> The Phantom Menace </h3>
+                        <p> </p>
+
+                    </article>
+
+
+                </section>
+
+
+                <section id="originalT">
+
+                    <h2> Original Trilogy </h2>
+                    <article>
+
+
+
+                    </article>
+
+                </section>
+
+                <form>
+
+                    <fieldset>
+
+                        
+                        <span>Categories to Search</span> <br>
+                        <select id="choosenOption" name="searchType">
+                                                    
+                            <option id="planets" value="planets" > Planets </option>
+                            <option id="people" value="people" > People </option>
+                            <option id="films" value="films" > Films </option>
+                            <option id="starships" value="starships" > StarShips </option>
+                            <option id="species" value="species" > Species </option>
+                            <option id="vehicles" value="vehicles" > Vehicles </option>
+                            
+                         
+                         </select>
+
+                        <input type="text" id="searchBox" name="searchBox">
+
+                        <button id="submitForm" type="button">search</button>
+                        <p id="tester"> </p>
+                    </fieldset>
+
+
+                </form>
+
+            
+
+
+            <script>
+                //autoStart Functions
+                (function() {
+
+                    //create eventhandler
+                    document.getElementById("submitForm").addEventListener("click",function () {
+
+
+                        //variables
+                        var xhttp = new XMLHttpRequest();
+                        var searchVal = document.getElementById("searchBox").value;
+                        var query;
+                        var searchType = document.getElementById("choosenOption").value;
+
+
+                        //Create the query
+                        if(searchType === "planets"){
+                            searchVal = JSON.stringify(
+                                
+
+
+                                );
+                        }
+
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                var x = this.responseText;                                
+                                document.getElementById("tester").innerHTML = x;
+                            }
+                        };
+
+                        xhttp.open("GET","PHP/searchDB.php?q= " + searchVal, true);
+                        xhttp.send();
+                    });
+                })();
+
+
+
+                
+                (function () {
+                    
+                    //var
+                    var event = document.getElementById("submitForm");
+                    
+                    //event listener for click
+                    event.addEventListener("click", function () {
+                        
+                        var v = document.getElementById("choosenOption").value;
+                       // document.getElementById("tester").innerHTML = v;
+                        
+                    });
+                    
+                    
+                    
+                })()
+                
+            </script>
+
+        </div>
+
+
+
+        <footer>
+            This area is where your copyright info goes.
+        </footer>
+
+    </div>
+
+</body>
+</html>
+
