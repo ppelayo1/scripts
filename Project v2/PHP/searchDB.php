@@ -1,7 +1,7 @@
 <?php
 
 	//variables
-	$q = $_REQUEST["q"];
+	$q = $_GET["q"];
 	$strn = ''; //This string will hold the querry request
 	$result = '';    //Results of the querry
 	$obj;  	//This will be a returned json object
@@ -29,6 +29,7 @@
 	    //Connect and get results
 	    $results = $con->query($strn);
 
+    
 	    //Build an object of all results
 	    while($row = $results->fetch_assoc())
 	    {
