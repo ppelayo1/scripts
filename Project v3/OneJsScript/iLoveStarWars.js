@@ -131,7 +131,7 @@
                     }
                 };
 
-                xhttp.open("GET", "PHP/searchDBnoHint.php?q=" + searchVal, true);
+                xhttp.open("GET", "PHP/searchClass.php?q=" + searchVal, true);
                 xhttp.send();
             });
         })();
