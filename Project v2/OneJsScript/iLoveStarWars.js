@@ -114,14 +114,27 @@ var starWarsNS = {
 
                             //decode the JSON response
                             var response = JSON.parse(this.responseText);
-
-                            //paragraph string
-                            var strn = "Below is some information on that person you searched for.<br> <br> <span style='font-size: 25px;'>Name: " + response.Name + "<br>Weight: " + response.Mass + "lb<br>Hair Color: " + response.Hair_color + "<br>Skin Color: " + response.Skin_color + "<br>Eye Color: " + response.Eye_color + "<br>Birth Year: " + response.Birth_year + "<br>Gender: " + response.Gender + "<br>Height: " + response.Height + "</span>";
-
                             
+                            //check if planet or person thru property check
+                            if(response.population === undefined){
 
-                            //Assign the string
-                            pTag.innerHTML = strn;
+                                //paragraph string
+                                var strn = "Below is some information on that person you searched for.<br> <br> <span style='font-size: 25px;'>Name: " + response.Name + "<br>Weight: " + response.Mass + "lb<br>Hair Color: " + response.Hair_color + "<br>Skin Color: " + response.Skin_color + "<br>Eye Color: " + response.Eye_color + "<br>Birth Year: " + response.Birth_year + "<br>Gender: " + response.Gender + "<br>Height: " + response.Height + "</span>";
+
+
+
+                                //Assign the string
+                                pTag.innerHTML = strn;
+                            }else{ //planet output
+                                
+                                //paragraph string
+                                var strn = "Below is some information on that planet you searched for.<br> <br> <span style='font-size: 25px;'>Name: " + response.Name + "<br>Day Length: " + response.rotation_period + "hr<br>Local Days a Year: " + response.orbital_period + "<br>Diameter: " + response.diameter + "km<br>Climate: " + response.climate + "<br>Gravity: " + response.gravity + "<br>Terrain: " + response.terrain + "<br>Surface Water: " + response.surface_water + "%<br> Population:" + response.population + "</span>";
+
+
+
+                                //Assign the string
+                                pTag.innerHTML = strn;
+                            }
                         }                     
 
 

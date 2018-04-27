@@ -42,8 +42,8 @@
     	//Assign all rows into an array for conversion into a json object
     	while($row = $results->fetch_assoc()){
     		$obj = $row;
-    	}
-
+    	}        
+            
     	$flag = true;
 
     }else{ 
