@@ -45,6 +45,8 @@
 #searchResults{
     width: 95%;
     padding: 0 10px 0 10px;
+    font-size: 30px;
+    text-align: center;
 }
 
 

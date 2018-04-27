@@ -35,6 +35,23 @@
 	    {
 	    	$obj[] = $row["Name"];
 	    }
+            
+        //Connect and get name hints from the planet table
+            
+        //build the querry string
+	    $strn = 'SELECT Name FROM Planets
+	    			WHERE Name LIKE "' . $q . '%"';
+
+
+
+	    //Connect and get results
+	    $results = $con->query($strn);
+            
+        //Build an object of all results
+	    while($row = $results->fetch_assoc())
+	    {
+	    	$obj[] = $row["Name"];
+	    }
 
 	    //encode the obj for JSON
 	    $obj = json_encode($obj);
