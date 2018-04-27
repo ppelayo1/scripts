@@ -33,6 +33,9 @@
 	    //Connect and get results
 	    $results = $con->query($strn);
     
+    	//check if empty set
+    	if($results->num_rows > 0){
+
     	//Assign all rows into an array for conversion into a json object
     	while($row = $results->fetch_assoc()){
     		$obj = $row;
@@ -40,6 +43,10 @@
 
     	//output the result
     	echo json_encode($obj);
+
+    }else{  //returns empty string
+    	echo "";
+    }
 
 	}
 

@@ -172,19 +172,41 @@
                 var xhttp = new XMLHttpRequest();
                 var searchVal = document.getElementById("searchBox").value;
                 var pTag = document.getElementById("searchResults");
-                
+
 
 
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                        //decode the JSON response
-                        var response = JSON.parse(this.responseText);
-                        
-                        //paragraph string
-                        var strn = "Name: " + response.Name;                        
-                        
-                        //Assign the string
-                        pTag.innerHTML = strn;
+
+                        //check if response existed
+                        if (this.responseText.length) {
+
+                            //clear the hints
+                            var searchObj = document.getElementById("searchHints");
+
+                            //get length of current search obj children
+                            var sLength = searchObj.children.length;
+
+                            //delete old child nodes
+                            if (sLength > 0) {
+                                for (var i = 0; i < sLength; i++) {
+                                    searchObj.removeChild(searchObj.children[0]);
+                                }
+                            }
+
+                            //decode the JSON response
+                            var response = JSON.parse(this.responseText);
+
+                            //paragraph string
+                            var strn = "Name: " + response.Name + "<br>Weight: " + response.Mass + "<br>Hair Color: " + response.Hair_color + "<br>Skin Color: " + response.Skin_color + "<br>Eye Color: " + response.Eye_color + "<br>Birth Year: " + response.Birth_year + "<br>Gender: " + response.Gender + "<br>Height: " + response.Height;
+
+                            
+
+                            //Assign the string
+                            pTag.innerHTML = strn;
+                        }                     
+
+
                     }
                 };
 
@@ -212,6 +234,7 @@
 
 
         })()
+
     </script>
 
 </body>
