@@ -1,15 +1,5 @@
 //These are the functions for the iLoveStarWars html file
 
-//functions are seperated by nameSpaces
-
-//star wars namespace
-var starWarsNS = {
-  
-    
-    
-    
-};
-
 //autoStart Functions
         (function() {
 
@@ -77,7 +67,7 @@ var starWarsNS = {
                     }
                 };
 
-                xhttp.open("GET", "PHP/searchDB.php?q=" + searchVal, true);
+                xhttp.open("GET", "PHP/searchClass.php?h=" + searchVal, true);
                 xhttp.send();
             });
 
@@ -145,23 +135,3 @@ var starWarsNS = {
                 xhttp.send();
             });
         })();
-
-
-
-
-        (function() {
-
-            //var
-            var event = document.getElementById("submitForm");
-
-            //event listener for click
-            event.addEventListener("click", function() {
-
-                var v = document.getElementById("choosenOption").value;
-                // document.getElementById("tester").innerHTML = v;
-
-            });
-
-
-
-        })()
