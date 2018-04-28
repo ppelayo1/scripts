@@ -1,44 +1,9 @@
 <?php 
     
-    //Used to log into the mySql Server
-    function mySQL_connect(){        
-    
-        //variables
-        $hostname = "localhost"; // the hostname you created when creating the database
-        $username = "root";      // the username specified when setting up the database
-        $password = "";      // the password specified when setting up the database
-        $database = "feedback";      // the database name chosen when setting up the database 
-        $table    = "feedBack";
-        
-        $name = $_POST["userName"];
-        $phone = $_POST["phoneN"];                
-        $eMail = $_POST["emailAd"];
-        $callOK = empty($_POST["byPhone"]) ? "" : $_POST["byPhone"];
-        $textOK = empty($_POST["byText"]) ? "" : $_POST["byText"];
-        $emailOK = empty($_POST["byEmail"]) ? "" : $_POST["byEmail"];
-        $comment = $_POST["comments"];
-        $feedbType = $_POST["feedBackList"];
-        
-        $string =  "INSERT INTO " . $table . " (Name, Comment, CallOK, TextOK, EmailOK, Phone, Email , FeedBtype) VALUES ('". $name . "', '" .                     $comment . "', '" .$callOK . "', '" . $textOK . "', '" . $emailOK . "', '" . $phone . "', '" . $eMail ."', '" . $feedbType . "')";
+    //This class provides output and updates the database with the feedback
+    class feedBackUpdate {
 
-        
-        
-        $link = mysqli_connect($hostname, $username, $password, $database);
-        if (mysqli_connect_errno()) {        
-            die("Connect failed: %s\n" + mysqli_connect_error());
-            exit();
-        }       
-        
-        //now update to the dataBase
-        mysqli_query($link,$string);       
-    }
-
-    //connect to the database
-    mySQL_connect();
-
-
-    class Output {
-
+        /*
         private $name ="";
         private $phone ="";           
         private $eMail ="";
@@ -47,20 +12,50 @@
         private $emailOK ="";
         private $comment ="";
         private $feedbType ="";
+        */
 
-        //assign the values
+        //constructor
         function __construct(){
+            
+            //variables
             $this->name = $_POST["userName"];
             $this->phone = $_POST["phoneN"];                
             $this->eMail = $_POST["emailAd"];
             $this->callOK = empty($_POST["byPhone"]) ? "" : $_POST["byPhone"];
             $this->textOK = empty($_POST["byText"]) ? "" : $_POST["byText"];
             $this->emailOK = empty($_POST["byEmail"]) ? "" : $_POST["byEmail"];
+            $this->comment = $_POST["comments"];
+            $this->feedbType = $_POST["feedBackList"];
+            
+            //Connection variables
+            $this->hostname = "localhost"; // the hostname you created when creating the database
+            $this->username = "root";      // the username specified when setting up the database
+            $this->password = "";      // the password specified when setting up the database
+            $this->database = "feedback";      // the database name chosen when setting up the database 
+            $this->table    = "feedBack";
+            
+            //update the database with the feedback
+            $this->insertFeedback();
+            
+            
             
         }
 
-        function __destruct(){
+        //Login and add the comment to the database
+        protected function insertFeedback(){        
 
+            //variables
+            
+            $table    = "feedBack";
+            $string =  "INSERT INTO " . $table . " (Name, Comment, CallOK, TextOK, EmailOK, Phone, Email , FeedBtype) VALUES ('". $this->name . "', '" .                     $this->comment . "', '" .$this->callOK . "', '" . $this->textOK . "', '" . $this->emailOK . "', '" . $this->phone . "', '" . $this->eMail ."', '" . $this->feedbType . "')";
+
+
+
+            $link = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
+                 
+
+            //now update to the dataBase
+            mysqli_query($link,$string);       
         }
         
           
@@ -87,7 +82,7 @@
 
       }
         
-      $object = new Output;       
+      $object = new feedBackUpdate;       
         
     
     ?>

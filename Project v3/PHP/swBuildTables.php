@@ -5,20 +5,81 @@
         
         function __construct(){
             //variables
-            $hostname = "localhost"; // the hostname you created when creating the database
-            $username = "root";      // the username specified when setting up the database
-            $password = "";      // the password specified when setting up the database
-            $database = "starwarsapi";      // the database name chosen when setting up the database 
+            $this->hostname = "localhost"; // the hostname you created when creating the database
+            $this->username = "root";      // the username specified when setting up the database
+            $this->password = "";      // the password specified when setting up the database
+            $this->database = "starwarsapi";      // the database name chosen when setting up the database 
             
-            $this->link = mysqli_connect($hostname, $username, $password, $database);
+            
+            
+            //build the tables
+              $this->buildPlanets();
+              $this->buildPeople();
+              
+            
+            
+        }
+        
+        //functions
+        protected function buildPlanets() {
+             //goal is to extract all planet records into a single array holding JSON data
+             //It will be passed into the database so that it could later be recalled
+
+             //variables
+             $planets = file_get_contents("https://swapi.co/api/planets/?format=json&page=1");
+             $url     = "https://swapi.co/api/planets/?format=json&page="; 
+             $addMeOn;
+
+
+             $planets = json_decode($planets);
+             $addMeOn = $planets;
+            
+            //make the connection
+            $link = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
                 if (mysqli_connect_errno()) {        
                     die("Connect failed: %s\n" + mysqli_connect_error());
                     exit();
-                } 
+                }; 
+
+
+
+
+             //loop thru and collect all values
+             while($planets->next != null){
+                $planets = file_get_contents($planets->next);
+
+                //decode the new json object
+                $planets = json_decode($planets);
+
+                //merge the planet arrays
+                $addMeOn->results = array_merge($addMeOn->results,$planets->results);
+
+             }
+
             
-            //build the tables
-            $this->buildPeople();
+            //Now pass my desired information into the database for star wars
+
+
+
+                    //variables                    
+                    $table    = "planets";
+
+                    //build the table
+                    $string = "CREATE TABLE " . $table . "(ID INT NOT NULL AUTO_INCREMENT, Name VARCHAR(255) NOT NULL, rotation_period TEXT NOT NULL, orbital_period TEXT NOT NULL, diameter TEXT NOT NULL, climate TEXT NOT NULL, gravity TEXT NOT NULL, terrain TEXT NOT NULL, surface_water TEXT NOT NULL, population TEXT NOT NULL, PRIMARY KEY (ID), UNIQUE (Name));";
+                    
+                    
+
+                    //build the records
+                    for($i = 0; $i < count($addMeOn->results);$i++){
+
+                        $string .=  "INSERT INTO " . $table . " (Name, rotation_period, orbital_period, diameter, climate, gravity, terrain , surface_water, population) VALUES ('". $addMeOn->results[$i]->name . "', '" .                     $addMeOn->results[$i]->rotation_period . "', '" .$addMeOn->results[$i]->orbital_period . "', '" . $addMeOn->results[$i]->diameter . "', '" . $addMeOn->results[$i]->climate . "', '" . $addMeOn->results[$i]->gravity . "', '" . $addMeOn->results[$i]->terrain ."', '" . $addMeOn->results[$i]->surface_water . "', '" . $addMeOn->results[$i]->population  . "');";
+
+                    }      
             
+                    
+
+                    //now update to the dataBase
+                    mysqli_multi_query($link,$string);    
         }
         
         protected function buildPeople () {
@@ -31,6 +92,13 @@
 
          $people = json_decode($people);
          $addMeOn = $people;
+            
+        //make the connection
+         $link = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
+             if (mysqli_connect_errno()) {        
+                 die("Connect failed: %s\n" + mysqli_connect_error());
+                 exit();
+             }; 
 
 
 
@@ -84,7 +152,7 @@
                 }
 
                 //Build table 
-                $string = "CREATE TABLE People (ID INT NOT NULL AUTO_INCREMENT,Name TEXT NOT NULL,Mass TEXT NOT NULL,Hair_color TEXT NOT NULL,Skin_color TEXT NOT NULL,Eye_color TEXT NOT NULL,Birth_year TEXT NOT NULL,Gender TEXT NOT NULL,HomeWorld TEXT NOT NULL,Species TEXT NOT NULL,Height TEXT NOT NULL,PRIMARY KEY (ID));";
+                $string = "CREATE TABLE People (ID INT NOT NULL AUTO_INCREMENT,Name VARCHAR(255) NOT NULL,Mass TEXT NOT NULL,Hair_color TEXT NOT NULL,Skin_color TEXT NOT NULL,Eye_color TEXT NOT NULL,Birth_year TEXT NOT NULL,Gender TEXT NOT NULL,HomeWorld TEXT NOT NULL,Species TEXT NOT NULL,Height TEXT NOT NULL,PRIMARY KEY (ID), UNIQUE(Name));";
 
 
 
@@ -108,7 +176,7 @@
                 
 
                 //now update to the dataBase
-                mysqli_multi_query($this->link,$string);       
+                mysqli_multi_query($link,$string);       
 
 
 
