@@ -1,0 +1,56 @@
+/*Moble first */
+body{
+    margin-top: -25px;
+    padding:top:20px
+}
+
+body *{
+    margin:0;
+    padding:0;
+}
+
+
+header{
+    position:fixed;
+    background-image: url(../../Images/header/headerBannerFans.jpg);
+    width:100%;
+    height:180px;    
+    
+}
+
+nav{
+    height:25px;
+    padding-top: 25px;
+    color:white;
+    
+}
+
+header a img{    
+    position:relative;
+    display:block;
+    padding-top: 35px;
+    margin-left:auto;
+    margin-right:auto;
+   
+}
+
+#main {
+    padding-top:180px;
+    margin-left: 0px;
+}
+
+#main h1,h2 {
+    text-align: center;    
+}
+
+
+
+.co-photo{
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display:block;
+    float:none;
+}
+
