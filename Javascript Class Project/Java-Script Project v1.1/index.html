@@ -8,14 +8,11 @@
     <link href="layout.css" type="text/css" rel="stylesheet">
     <link href="Styles/General/standardPageStylesPatrickPelayo.css" type="text/css" rel="stylesheet">
 
-    <script type="text/javascript" src="guest-functions.js"></script>
+    
     <script type="text/javascript" src="cart-functions.js"></script>
 
     <script>
-        window.onload = function() {
-            setGuest();
-            updateCartTotal();
-        }
+        
 
     </script>
 
@@ -54,7 +51,7 @@
 
     <div id="main">
 
-        <p id="loginName">Welcome Guest <input type="text"> <input type="button" value="sign in"> </p>
+        <p id="loginElement">Welcome <span id="loginName">Guest</span> <input id="userName" type="text"> <input id="signIn" type="button" value="sign in"> </p>
 
         <h1>Home</h1>
         <p>Introduce your company by writing about it. Make this like an "about us" page. Include at least one image related to your company or its products.</p>
@@ -82,6 +79,9 @@
             </div>
         </footer>
     </div>
+    
+    <script type="text/javascript" src="guest-functions.js"></script>
+    <script type="text/javascript" src="JavaScript/general.js"></script>
 </body>
 
 </html>
