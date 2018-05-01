@@ -67,6 +67,9 @@ function Login(){
         //reset the name        
         this._setGuest();
         
+        //reset the # in the cart
+        document.getElementById("cartN").innerHTML = 0;
+        
         
     };
     

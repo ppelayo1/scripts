@@ -1,14 +1,14 @@
 var products = [];
 products[0] = {
     id: "q1",
-    name: "Fan",
-    description: "Generic fan",
+    name: "Nail Clippers",
+    description: "Anti-Vampire Nail Clippers",
     price: "5.00"
 };
 products[1] = {
     id: "q2",
-    name: "Paper",
-    description: "Generic paper",
+    name: "Steak",
+    description: "Anti-Vampire Steaks",
     price: "3.50"
 };
 products[2] = {
@@ -88,6 +88,7 @@ function clearCart() {
     localStorage.setItem('q2', '0');
     localStorage.setItem('q3', '0');
     localStorage.setItem('q4', '0');
+    
     updateCartTotalQ();
 }
 
