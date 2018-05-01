@@ -9,12 +9,7 @@
     <link href="Styles/General/standardPageStylesPatrickPelayo.css" type="text/css" rel="stylesheet">
     <link href="Styles/shop/shop.css" type="text/css" rel="stylesheet">
 
-    <style>
-        .quantity {
-            width: 55px;
-        }
-
-    </style>
+    
 
     
     <script type="text/javascript" src="cart-functions.js"></script>
@@ -49,7 +44,9 @@
             <div id="divCartSummary">&nbsp;</div>
         </nav>
 
-        <span id="shopCart"> 0 <img  src="Images/header/shopping-cart.png" alt=""> </span>
+        <span id="shopCart"> <span id="cartN"> 0 </span> <a href="cart.html"> <img  src="Images/header/shopping-cart.png" alt="" > 
+            </a>
+            </span>
 
     </header>
 
@@ -61,15 +58,18 @@
         <p>This shop page should be filled with a table containing at least 4 products. For each product there should be one row of the table. In that row, there should be:a small photo of the product, a short description, a price, a textbox to indicate a quantity, and a button to add to the cart:</p>
         
         <div class="productBox">
-            <img src="add-to-cart-button1.gif" width="150" height="36" alt="add to cart button" onclick="" />
+            <label for="q1"  >Qty<input class="numberInp" id="q1" name="q1" type="number" min="0" name"number" value='1'></label >
+            
             
             <form class="cartInput">
-                  <input type="button" value="Proceed to Cart" onclick="'">&nbsp; &nbsp; &nbsp;<br> <br>
-                  <input type="button" value="Empty the Cart" onclick="">&nbsp; &nbsp; &nbsp;
+                  <input type="button" value="Proceed to Cart" onclick="location.assign('cart.html')">&nbsp; &nbsp; &nbsp;<br> <br>
+                  <input type="button" value="Empty the Cart" onclick="clearCart()">&nbsp; &nbsp; &nbsp;
             </form>
+            
+            <img id='but1' class="button" src="add-to-cart-button1.gif" width="150" height="36" alt="add to cart button" onclick="add2Cart('q1','but1');" />
+            
             <img class="shopItem" src="Images/shop/nailClipper.png" width="100" height="100" alt="generic product 1">
-            <h4>Only <span id="prod1Price">$10</span></h4>
-            <h4>Anti-Vampire Nail Clippers</h4>
+            <h4> Anti-Vampire Nail Clippers <br>Only <span class="prodPrice">$4.00</span></h4>
             <p class="itemDesc">You may wonder what good nail clippers may do against a vampire ,but have you seen the claws on the nosferatu. If threatened by one like Count Orlok just flash your clippers and the fear the vampire will have of having his fabolous nails cut will send him flying away.</p>
             
             
@@ -77,14 +77,16 @@
         </div>
         
         <div class="productBox">
-            <img src="add-to-cart-button1.gif" width="150" height="36" alt="add to cart button" onclick="" />
+            <label for="q2"  >Qty<input class="numberInp" id="q2" name="q2" type="number" min="0" name"number" value='1'></label >
+            
             
             <form class="cartInput">
-                  <input type="button" value="Proceed to Cart" onclick="'">&nbsp; &nbsp; &nbsp;<br> <br>
-                  <input type="button" value="Empty the Cart" onclick="">&nbsp; &nbsp; &nbsp;
+                  <input type="button" value="Proceed to Cart" onclick="location.assign('cart.html')">&nbsp; &nbsp; &nbsp;<br> <br>
+                  <input type="button" value="Empty the Cart" onclick="clearCart()">&nbsp; &nbsp; &nbsp;
             </form>
+            <img id='but2'class="button" src="add-to-cart-button1.gif" width="150" height="36" alt="add to cart button" onclick="add2Cart('q2','but2')" />
             <img src="Images/shop/stake.jpg" class="shopItem" width="99" height="99" alt="generic product 2">
-            <h4>Anti-Vampire Stakes</h4>
+            <h4>Anti-Vampire Stakes <br>Only <span class="prodPrice">$4.00</span></h4>
             <p class="itemDesc">This is a perfect weapon for defeating vampires, just position over their heart and jam it in, then poof            no more vampire. <br> (Hammer not included)</p>
             
             
@@ -92,14 +94,18 @@
         </div>
         
         <div class="productBox">
-            <img src="add-to-cart-button1.gif" width="150" height="36" alt="add to cart button" onclick="" />
+            
+            <label for="q3"  >Qty<input class="numberInp" id="q3" name="q3" type="number" min="0" name"number" value='1'></label >
+            
+            
             
             <form class="cartInput">
-                  <input type="button" value="Proceed to Cart" onclick="'">&nbsp; &nbsp; &nbsp;<br> <br>
-                  <input type="button" value="Empty the Cart" onclick="">&nbsp; &nbsp; &nbsp;
+                  <input type="button" value="Proceed to Cart" onclick="location.assign('cart.html')">&nbsp; &nbsp; &nbsp;<br> <br>
+                  <input type="button" value="Empty the Cart" onclick="clearCart()">&nbsp; &nbsp; &nbsp;
             </form>
-            <img src="Images/shop/stake.jpg" class="shopItem" width="99" height="99" alt="generic product 2">
-            <h4>Anti-Vampire Nail Clippers</h4>
+            <img id='but3' class="button" src="add-to-cart-button1.gif" width="150" height="36" alt="add to cart button" onclick="add2Cart('q3','but3')"/>
+            <img  src="Images/shop/stake.jpg" class="shopItem" width="99" height="99" alt="generic product 2">
+            <h4>Anti-Vampire Nail Clippers <br>Only <span class="prodPrice">$4.00</span></h4>
             <p class="itemDesc"></p>
             
             
@@ -107,14 +113,18 @@
         </div>
         
         <div class="productBox">
-            <img src="add-to-cart-button1.gif" width="150" height="36" alt="add to cart button" onclick="" />
+             <label for="q4"  >Qty<input class="numberInp" id="q4" name="q4" type="number" min="0" name"number" value='1'></label >
+        
+            
+           
             
             <form class="cartInput">
-                  <input type="button" value="Proceed to Cart" onclick="'">&nbsp; &nbsp; &nbsp;<br> <br>
-                  <input type="button" value="Empty the Cart" onclick="">&nbsp; &nbsp; &nbsp;
+                  <input type="button" value="Proceed to Cart" onclick="location.assign('cart.html')">&nbsp; &nbsp; &nbsp;<br> <br>
+                  <input type="button" value="Empty the Cart" onclick="clearCart()">&nbsp; &nbsp; &nbsp;
             </form>
+             <img id='but4' class="button" src="add-to-cart-button1.gif" width="150" height="36" alt="add to cart button" onclick="add2Cart('q4','but4')" />
             <img src="Images/shop/stake.jpg" class="shopItem" width="99" height="99" alt="generic product 2">
-            <h4>Anti-Vampire Nail Clippers</h4>
+            <h4>Anti-Vampire Nail Clippers <br>Only <span class="prodPrice">$4.00</span></h4>
             <p class="itemDesc"></p>
             
             

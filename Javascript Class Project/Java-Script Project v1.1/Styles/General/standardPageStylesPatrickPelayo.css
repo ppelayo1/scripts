@@ -43,14 +43,7 @@ nav{
     line-height: 2;
 }
 
-#shopCart img{
-    float:right;
-    
-    transform:rotateY(180deg);
-    
-    padding-left: 5px;
-    padding-right: 13px;
-}
+
 
 header a img{    
     position:relative;
@@ -59,6 +52,19 @@ header a img{
     margin-left:auto;
     margin-right:auto;
    
+}
+
+#shopCart a img{
+    float:right;
+    
+    transform:rotateY(180deg);
+    padding-top:0;
+    margin-left:0;
+    margin-right:0;
+    padding-top:0;
+    display:inline;
+    padding-left: 5px;
+    padding-right: 13px;
 }
 
 #main {    

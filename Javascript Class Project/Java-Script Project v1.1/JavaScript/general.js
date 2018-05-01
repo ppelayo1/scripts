@@ -1,4 +1,6 @@
 //auto start functions
+
+//Handles the nav bar
 (function () {
 
     //class for handling nav bar
@@ -15,7 +17,7 @@
         //This function creates the events
         this._pageChg = function () {
             //variables
-            var navOption = this.navOption; //This does not work inside the event handler
+            var navOption = this.navOption; //'This.' does not work inside the event handler
             var homeURL   = this.homeURL;
             var shopURL   = this.shopURL;
             var cartURL   = this.cartURL;
@@ -82,4 +84,22 @@
 
 })();
 
+//hanldes the cart # display
+(function (){
+    
+    var qTot = 0;
+    var q;
+    for (var i = 1; i <= 4; i++) {
+        q = parseInt(localStorage.getItem("q" + i));
+        if (isNaN(q)) {
+            q = 0;
+        }
+        qTot += q;
+    }
 
+    if (qTot == 0) {
+        document.getElementById("cartN").innerHTML = qTot;
+    } else {
+        document.getElementById("cartN").innerHTML =  qTot;
+    }
+})();

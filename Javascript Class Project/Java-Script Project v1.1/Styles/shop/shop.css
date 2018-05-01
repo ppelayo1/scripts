@@ -15,15 +15,25 @@
 }
 
 .shopItem{
+    
     width:100%;
     height:100%;
     
+}
+
+.button{
+    padding-top: 30px;
 }
 
 .cartInput{
     float:right;
 }
 
+.numberInp{
+    width:50px;
+}
+
 .itemDesc{
     
 }
+
