@@ -1,4 +1,8 @@
-
+.invalidInput, .invalidInputEmpty{
+    color:red;
+    font-weight: bold;
+    display:none;
+}
 
 #cartTable{
     margin-left:auto;

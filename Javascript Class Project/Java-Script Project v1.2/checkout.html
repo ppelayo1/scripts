@@ -64,7 +64,7 @@
 
 
 
-        <form id="checkOut" action="thankyou.html">
+        <form id="checkOut" onsubmit="return inputValidate();" action="thankyou.html">
 
             <fieldset id='shippingBox'>
                 <legend>Shipping Method</legend>
@@ -80,7 +80,7 @@
                 </p>
 
                 <p>
-                    <input type="radio" name="overnightShipping" id="overN" value="overN">
+                    <input type="radio" name="overnightShipping" id="overN" value="overN" checked='checked'>
                     <label for="overN">Overnight Shipping($50)</label>
                 </p>
 
@@ -91,33 +91,39 @@
 
                 <p>
                     <label for="fName">Full Name:</label>
-                    <input type="text" id="fName">
+                    <input type="text" class="checkIfEmpty" id="fName">
+                    <span class="invalidInputEmpty"> X  </span>
                 </p>
 
                 <p>
                     <label for="streetAdd">Street Address:</label>
-                    <input type="text" id="streetAdd">
-
+                    <input type="text" class="checkIfEmpty" id="streetAdd">
+                     <span class="invalidInputEmpty"> X  </span>
                 </p>
 
                 <p>
                     <label for="city">City:</label>
-                    <input type="text" id="city">
+                    <input type="text" class="checkIfEmpty" id="city">
+                     <span class="invalidInputEmpty"> X  </span>
                 </p>
 
                 <p>
                     <label for="state">State/Province/Region:</label>
-                    <input type="text" id="state">
+                    <input type="text" class="checkIfEmpty" id="state">
+                     <span class="invalidInputEmpty"> X  </span>
                 </p>
 
                 <p>
                     <label for="zip">Zip:</label>
-                    <input type="text" id="zip">
+                    <input class="validateInput" type="text" id="zip">
+                    <span class="invalidInput"> X  </span>
+                     
                 </p>
 
                 <p>
                     <label for="country">Country:</label>
-                    <input type="text" id="country">
+                    <input type="text" class="checkIfEmpty" id="country">
+                     <span class="invalidInputEmpty"> X  </span>
                 </p>
 
             </fieldset>
@@ -125,7 +131,8 @@
             <div class="fieldSpace">
                 <label for="tel">Phone Number:</label>
                 <br>
-                <input id="tel" type="tel">
+                <input id="tel" class="validateInput" type="tel">
+                <span class="invalidInput"> X  </span>
             </div>
 
             <fieldset class="fieldSpace" id="payment">
@@ -145,7 +152,8 @@
 
                 <p>
                     <label for="cardN">Card #:</label>
-                    <input id="cardN" type="number">
+                    <input id="cardN" class="validateInput" type="text">
+                    <span class="invalidInput"> X  </span>
                 </p>
 
                 <p>
@@ -167,7 +175,8 @@
                 </p>
                 <span id="yearEXPcss">
                 <label for='yearEXP'>Expiration Year:</label>
-                <input id="yearEXP" type="number">
+                <input id="yearEXP" class="validateInput" type="text">
+                    <span class="invalidInput"> X  </span>
                 </span>
                 
                 
@@ -175,6 +184,7 @@
             </fieldset>
             <br>
             <input type="submit" value="Complete Payment" id="submitSaleForm">
+            <span class="invalidInput">Correct Problems With X</span>
         </form>
 
 
@@ -192,7 +202,7 @@
     </div>
     <script type="text/javascript" src="guest-functions.js"></script>
     <script type="text/javascript" src="JavaScript/general.js"></script>
-
+    <script type="text/javascript" src="JavaScript/checkout/checkout.js"></script>
 </body>
 </html>
 
