@@ -49,12 +49,15 @@ nav{
 
 
 header a img{    
-    position:relative;
-    display:block;
+    position:relative;    
     padding-top: 35px;
-    margin-left:auto;
-    margin-right:auto;
+    
    
+}
+
+#headerImgWrapper{
+    width:100%;
+    text-align: center;
 }
 
 #shopCart a img{
