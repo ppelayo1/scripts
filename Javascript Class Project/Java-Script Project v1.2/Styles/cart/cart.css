@@ -1,9 +1,9 @@
-.center > p{
+#center{
     text-align: center;
 }
 
-.center table{
-    
+#center table{
+    text-align: left;
     margin-left:auto;
     margin-right:auto;
 }

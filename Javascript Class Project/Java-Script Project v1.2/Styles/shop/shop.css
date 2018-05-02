@@ -1,5 +1,9 @@
 .productBox:first-of-type{
     margin-top:20px;
+    padding-top: 10px;
+    border-top: black;
+    border-top-style:solid;
+    border-width:1px;
 }
 
 .productBox:not(:first-of-type){
@@ -12,6 +16,10 @@
 
 .productBox h4{
     text-align: center;
+}
+
+.productBox{
+    max-width:313px;
 }
 
 .shopItem{
@@ -38,3 +46,18 @@
     
 }
 
+/*Larger Screens */
+@media only screen and (min-width:630px){
+    .productBox:nth-child(even){
+        float:left;
+        margin-top:200px;
+        clear:both;
+        
+       
+    }
+    
+    .productBox:nth-child(odd){
+        float:right;
+        margin-top:200px;
+    }
+}

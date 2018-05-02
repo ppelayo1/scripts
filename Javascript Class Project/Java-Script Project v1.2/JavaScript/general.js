@@ -11,7 +11,7 @@
         this.shopURL = "shop.html";
         this.cartURL = "cart.html";
         this.chkOutURL = "checkout.html";
-
+        this.thnkURL  = "thankyou.html";
         //Private Functions
 
         //This function creates the events
@@ -22,6 +22,7 @@
             var shopURL   = this.shopURL;
             var cartURL   = this.cartURL;
             var chkOutURL = this.chkOutURL;
+            var thnkURL   = this.thnkURL;
             
             //set an eventHandler to change pages
             document.getElementById("form1").addEventListener("change", function () {
@@ -67,6 +68,10 @@
                 else{
                     if(curP == this.chkOutURL)
                         elemV.value = this.chkOutURL;
+                    else{
+                        if(curP == this.thnkURL)
+                            elemV.value=this.thnkURL;
+                    }
                 }
             }
 
