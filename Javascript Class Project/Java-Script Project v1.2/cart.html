@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>YOUR NAME Final Project Cart</title>
+    <link href="layout.css" type="text/css" rel="stylesheet">
+    <link href="Styles/General/standardPageStylesPatrickPelayo.css" type="text/css" rel="stylesheet">
+    <link href="Styles/cart/cart.css" type="text/css" rel="stylesheet">
+
+
+    <script type="text/javascript" src="cart-functions.js"></script>
+
+
+
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img src="Images/header/clickableHeader.jpg" alt="PatrickP.tech">
+        </a>
+
+        <nav>
+            <form id="form1" name="form1" method="post">
+                <p>Choose a page to visit:<br>
+                    <select name="select" id="select" onchange="">
+    <option value="index.html" selected="selected">Home</option>
+    <option value="shop.html">Shop</option>
+    <option value="cart.html">Cart</option>
+ 	<option value="checkout.html">Checkout</option>
+  </select>
+                </p>
+            </form>
+            <p>&nbsp;</p>
+
+            <div id="divGuestArea">&nbsp;</div>
+            <p>&nbsp;</p>
+
+            <div id="divCartSummary">&nbsp;</div>
+        </nav>
+
+        <span id="shopCart"> <span id="cartN"> 0 </span> <a href="cart.html"> <img  src="Images/header/shopping-cart.png" alt="" > 
+            </a>
+        </span>
+    </header>
+
+
+    <div id="main">
+        <p id="loginElement">Welcome <span id="loginName">Guest</span> <input id="userName" type="text"> <input id="signIn" type="button" value="sign in"> </p>
+
+        <h1>Cart</h1>
+        
+        <div class="center">
+        
+        <p>Below is the current contents of your shopping cart:</p>
+
+        <table id="cartTable" border="1" cellpadding="8">
+            <script>
+                showCart();
+            </script>
+        </table>
+
+        <p><strong>Put a button here to proceed to checkout</strong></p>
+
+        </div>
+        <footer>
+            Copyright 2018 My Company.
+            <div>Icons made by <a href="https://www.flaticon.com/authors/stephen-hutchings" title="Stephen Hutchings">Stephen Hutchings</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript" src="guest-functions.js"></script>
+    <script type="text/javascript" src="JavaScript/general.js"></script>
+
+</body>
+</html>
+

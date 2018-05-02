@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>YOUR NAME Final Project Checkout</title>
+    <link href="layout.css" type="text/css" rel="stylesheet">
+    <link href="Styles/General/standardPageStylesPatrickPelayo.css" type="text/css" rel="stylesheet">
+    <link href="Styles/checkout/checkout.css" type="text/css" rel="stylesheet">
+
+
+    <script type="text/javascript" src="cart-functions.js"></script>
+
+
+
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img src="Images/header/clickableHeader.jpg" alt="PatrickP.tech">
+        </a>
+
+        <nav>
+            <form id="form1" name="form1" method="post">
+                <p>Choose a page to visit:<br>
+                    <select name="select" id="select" onchange="">
+    <option value="index.html" selected="selected">Home</option>
+    <option value="shop.html">Shop</option>
+    <option value="cart.html">Cart</option>
+ 	<option value="checkout.html">Checkout</option>
+  </select>
+                </p>
+            </form>
+            <p>&nbsp;</p>
+
+            <div id="divGuestArea">&nbsp;</div>
+            <p>&nbsp;</p>
+
+            <div id="divCartSummary">&nbsp;</div>
+        </nav>
+
+        <span id="shopCart"> <span id="cartN"> 0 </span> <a href="cart.html"> <img  src="Images/header/shopping-cart.png" alt="" > 
+            </a>
+        </span>
+
+    </header>
+
+
+    <div id="main">
+        <p id="loginElement">Welcome <span id="loginName">Guest</span> <input id="userName" type="text"> <input id="signIn" type="button" value="sign in"> </p>
+
+        <h1>Checkout</h1>
+
+        <h2>Cart</h2>
+        <p style="text-align:center">Below is the current contents of your shopping cart:</p>
+
+        <table id="cartTable" border="1" cellpadding="8">
+            <script>
+                showCart();
+            </script>
+        </table>
+
+
+
+        <form id="checkOut">
+
+            <fieldset id='shippingBox'>
+                <legend>Shipping Method</legend>
+
+                <p>
+                    <input type="radio" name="shippingType" id="standard" value="standard">
+                    <label for="standard">Standard Shipping($10)</label>
+                </p>
+
+                <p>
+                    <input type="radio" name="shippingType" id="2day" value="2day">
+                    <label for="2day">2-Day Shipping($15)</label>
+                </p>
+
+                <p>
+                    <input type="radio" name="overnightShipping" id="overN" value="overN">
+                    <label for="overN">Overnight Shipping($50)</label>
+                </p>
+
+            </fieldset>
+
+            <fieldset class="fieldSpace" id="shippingAddressBox">
+                <legend>Shipping Address</legend>
+
+                <p>
+                    <label for="fName">Full Name:</label>
+                    <input type="text" id="fName">
+                </p>
+
+                <p>
+                    <label for="streetAdd">Street Address:</label>
+                    <input type="text" id="streetAdd">
+
+                </p>
+
+                <p>
+                    <label for="city">City:</label>
+                    <input type="text" id="city">
+                </p>
+
+                <p>
+                    <label for="state">State/Province/Region:</label>
+                    <input type="text" id="state">
+                </p>
+
+                <p>
+                    <label for="zip">Zip:</label>
+                    <input type="text" id="zip">
+                </p>
+
+                <p>
+                    <label for="country">Country:</label>
+                    <input type="text" id="country">
+                </p>
+
+            </fieldset>
+
+            <div class="fieldSpace">
+                <label for="tel">Phone Number:</label>
+                <br>
+                <input id="tel" type="tel">
+            </div>
+
+            <fieldset class="fieldSpace" id="payment">
+
+                <legend>Payment Details</legend>
+
+                <p>
+
+                    <select>
+                    <option>Visa</option>
+                    <option>Master Card</option>
+                    <option>American Express</option>
+                    <option>Master Card</option>
+                </select>
+
+                </p>
+
+                <p>
+                    <label for="cardN">Card #:</label>
+                    <input id="cardN" type="number">
+                </p>
+
+                <p>
+                    <label for="monthEXP">Expiration Month:</label>
+                    <select id="monthEXP">
+                        <option>January</option>
+                        <option>February</option>
+                        <option>March</option>
+                        <option>April</option>
+                        <option>May</option>
+                        <option>June</option>
+                        <option>July</option>
+                        <option>August</option>
+                        <option>September</option>
+                        <option>October</option>
+                        <option>November</option>
+                        <option>December</option>                    
+                    </select>
+                </p>
+                <span id="yearEXPcss">
+                <label for='yearEXP'>Expiration Year:</label>
+                <input type="number">
+                </span>
+
+            </fieldset>
+
+        </form>
+
+
+
+
+
+        <p>This is where the transaction would take place so create a form here to take care of that final process as appropriate. Such form fields as contact info, shipping method, payment method, receipt, etc. Use HTML attributes wisely to help with validation and write JavaScript to validate any needed fields that are not sure to be validated by this HTML.</p>
+        <p>Connect your form to a "thankyou.html" page that you create so that after the form is submitted and found to be filled out properly, you thank them by name on "thankyou.html".</p>
+        <footer>
+            Copyright 2018 My Company.
+            <div>Icons made by <a href="https://www.flaticon.com/authors/stephen-hutchings" title="Stephen Hutchings">Stephen Hutchings</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript" src="guest-functions.js"></script>
+    <script type="text/javascript" src="JavaScript/general.js"></script>
+
+</body>
+</html>
+

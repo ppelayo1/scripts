@@ -1,0 +1,95 @@
+
+
+#cartTable{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#checkOut fieldset{
+    border-width:2px;
+    box-shadow: 2px 2px black;
+}
+#checkOut legend{
+    text-align: center;
+}
+
+
+#fName {
+    margin-left:26px;
+    
+}
+
+#city{
+    margin-left:66px;
+}
+
+#state{
+    width:119px;
+}
+
+#zip{
+    margin-left:71px;
+}
+
+#country{
+    margin-left: 41px;
+}
+
+#checkOut{
+    max-width:650px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#shippingBox{
+    margin-top:30px;
+    
+}
+
+.fieldSpace{
+    margin-top:15px;
+}
+
+/*Larger screenSize css*/
+@media only screen and (min-width:420px){
+    #shippingBox p:first-of-type{
+        float:left;
+        margin-right:10px;
+    }
+    @media only screen and (min-width:700px){
+        #shippingBox p:nth-of-type(2){
+            float:left; 
+            margin-right:10px;
+            
+        }
+        
+        #checkOut legend{
+            text-align: left;
+        }
+        
+        #standard{
+            margin-left: 25px;
+        }
+    }
+}
+
+
+
+@media only screen and (min-width:650px){
+    
+    
+    #shippingAddressBox p:nth-of-type(1), p:nth-of-type(3){
+        float:left;
+        margin-right: 30px;
+    }
+    
+    #yearEXPcss{
+        line-height:3;
+    }
+    
+    
+    
+    
+    
+    
+}
